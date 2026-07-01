@@ -38,13 +38,13 @@
       "id": "f028dc9ababc4feaac939017d4c35823" // IMPORTANT: Change this to your KV namespace ID
     }
   ],
-  "r2_buckets": [
-    {
-      "binding": "R2",
-      "preview_bucket_name": "kyan-sink",
-      "bucket_name": "kyan-sink" // IMPORTANT: Change this to your R2 bucket name, or create one with `wrangler r2 bucket create sink`
-    }
-  ],
+//  "r2_buckets": [
+//    {
+//      "binding": "R2",
+//      "preview_bucket_name": "kyan-sink",
+//      "bucket_name": "kyan-sink" // IMPORTANT: Change this to your R2 bucket name, or create one with `wrangler r2 bucket create sink`
+//    }
+//  ],
   "triggers": {
     "crons": ["0 0 * * *"] // Run backup task daily at 00:00 UTC
   }
