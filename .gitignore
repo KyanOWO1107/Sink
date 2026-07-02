@@ -33,3 +33,7 @@ public/world.json
 .opencode
 .agents
 opencode.json
+/.agent
+/.codex
+/memory
+

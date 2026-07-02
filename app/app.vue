@@ -1,22 +1,20 @@
 <script setup lang="ts">
 import 'vue-sonner/style.css'
 
-const { title, description, image } = useAppConfig()
+const { title, description, url } = useAppConfig()
 const route = useRoute()
 const localeHead = useLocaleHead()
 
 useSeoMeta({
-  title: `${title} - Link Shortener with Analytics`,
+  title,
   description,
   ogType: 'website',
   ogTitle: title,
   ogSiteName: title,
   ogDescription: description,
-  ogImage: image,
   twitterTitle: title,
   twitterDescription: description,
-  twitterImage: image,
-  twitterCard: 'summary_large_image',
+  twitterCard: 'summary',
 })
 
 useHead(() => ({
@@ -30,7 +28,7 @@ useHead(() => ({
   link: [
     {
       rel: 'canonical',
-      href: computed(() => `https://sink.cool${route.path}`),
+      href: computed(() => `${url}${route.path}`),
     },
     {
       rel: 'icon',

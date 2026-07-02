@@ -5,14 +5,17 @@ import { formatNumber } from '@/utils/number'
 export function useGithubStats() {
   const { github } = useAppConfig()
   const { locale } = useI18n()
-  const repo = github.replace('https://github.com/', '')
+  const repo = typeof github === 'string'
+    ? github.replace('https://github.com/', '')
+    : ''
 
   const { data, status } = useFetch(
-    `https://api.github.com/repos/${repo}`,
+    () => `https://api.github.com/repos/${repo}`,
     {
       key: 'github-stats',
       server: false,
       lazy: true,
+      immediate: Boolean(repo),
       dedupe: 'defer',
       transform: (res: { stargazers_count: number, forks_count: number }) => ({
         stars: res.stargazers_count,
